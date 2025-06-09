@@ -15,7 +15,7 @@ Create a `.env.local` file in your project folder (parent of src/).
 And add the following environment variable:
 
 ```sh
-DATABASE_URL='postgresql://nextjsuser:nextjspassword@localhost:5432/nextjs-hackathon'
+DATABASE_URL='postgresql://nextjsuser:nextjspassword@localhost:5432/clonathon'
 ```
 
 If for some reason you want to start the database from scratch you can use the following command (this will erase all the data!):
