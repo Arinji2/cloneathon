@@ -62,7 +62,7 @@ export const register = async (
     });
 
     const betaCode = formData.get('code');
-    if (!betaCode || betaCode !== '38292BBA') {
+    if (!betaCode || betaCode !== process.env.BETA_CODE) {
       return { status: 'invalid_data' };
     }
 
