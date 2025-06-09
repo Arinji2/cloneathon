@@ -13,5 +13,15 @@ services:
       - postgres:/data/postgres
     restart: unless-stopped
 
+  redis:
+    container_name: clonathon-redis
+    image: redis:7-alpine
+    ports:
+      - 6379:6379
+    volumes:
+      - redis:/data
+    restart: unless-stopped
+
 volumes:
   postgres:
+  redis:
