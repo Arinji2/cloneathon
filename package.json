@@ -6,7 +6,7 @@
     "dev": "next dev --turbo",
     "build": "tsx lib/db/migrate && next build",
     "start": "next start",
-    "lint": "next lint && biome lint --write --unsafe",
+    "lint": "pnpm biome check --write ./ --diagnostic-level=error",
     "lint:fix": "next lint --fix && biome lint --write --unsafe",
     "format": "biome format --write",
     "db:generate": "drizzle-kit generate",
@@ -16,7 +16,8 @@
     "db:pull": "drizzle-kit pull",
     "db:check": "drizzle-kit check",
     "db:up": "drizzle-kit up",
-    "test": "export PLAYWRIGHT=True && pnpm exec playwright test"
+    "test": "export PLAYWRIGHT=True && pnpm exec playwright test",
+    "prepare": "husky"
   },
   "dependencies": {
     "@ai-sdk/react": "^1.2.11",
@@ -104,6 +105,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-tailwindcss": "^3.17.5",
+    "husky": "^9.1.7",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "tsx": "^4.19.1",
