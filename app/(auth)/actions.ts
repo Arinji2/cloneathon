@@ -61,6 +61,11 @@ export const register = async (
       password: formData.get('password'),
     });
 
+    const betaCode = formData.get('code');
+    if (!betaCode || betaCode !== process.env.BETA_CODE) {
+      return { status: 'invalid_data' };
+    }
+
     const [user] = await getUser(validatedData.email);
 
     if (user) {

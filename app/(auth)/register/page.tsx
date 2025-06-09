@@ -7,9 +7,11 @@ import { useActionState, useEffect, useState } from 'react';
 import { AuthForm } from '@/components/auth-form';
 import { SubmitButton } from '@/components/submit-button';
 
-import { register, type RegisterActionState } from '../actions';
 import { toast } from '@/components/toast';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { useSession } from 'next-auth/react';
+import { register, type RegisterActionState } from '../actions';
 
 export default function Page() {
   const router = useRouter();
@@ -60,6 +62,22 @@ export default function Page() {
           </p>
         </div>
         <AuthForm action={handleSubmit} defaultEmail={email}>
+          <div className="flex flex-col gap-2">
+            <Label
+              htmlFor="code"
+              className="text-zinc-600 font-normal dark:text-zinc-400"
+            >
+              Beta Code
+            </Label>
+
+            <Input
+              id="code"
+              name="code"
+              className="bg-muted text-md md:text-sm"
+              type="password"
+              required
+            />
+          </div>
           <SubmitButton isSuccessful={isSuccessful}>Sign Up</SubmitButton>
           <p className="text-center text-sm text-gray-600 mt-4 dark:text-zinc-400">
             {'Already have an account? '}
